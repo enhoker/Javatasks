@@ -15,19 +15,18 @@ public class Car {
         maxVelocity = 0;
         power = 0;
         ownerId = 0;
-
     }
 
-    public Car(int id, String br, String mn, int mv,int p, int oid) {
-        carId = id;
-        brand = br;
-        modelName = mn;
-        maxVelocity = mv;
-        power = p;
-        ownerId = oid;
+    public Car(int id, String brand, String modelName, int maxVelocity,int power, int ownerId) {
+        this.carId = id;
+        this.brand = brand;
+        this.modelName = modelName;
+        this.maxVelocity = maxVelocity;
+        this.power = power;
+        this.ownerId = ownerId;
     }
 
-    public int compareToV(Car o) {
+    public int compareToVelocity(Car o) {
         if (o.maxVelocity > maxVelocity) {
             return 1;
         }
@@ -37,7 +36,7 @@ public class Car {
         return 0;
     }
 
-    public int compareToP(Car o) {
+    public int compareToPower(Car o) {
         if (o.power > power) {
             return 1;
         }
@@ -50,7 +49,6 @@ public class Car {
     @Override
     public String toString() {
         return brand + ' ' + modelName;
-
     }
 
     public int getCarId() {
