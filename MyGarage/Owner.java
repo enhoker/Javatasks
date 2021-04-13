@@ -1,3 +1,4 @@
+package MyGarage;
 import java.util.Collection;
 
 public class Owner {
