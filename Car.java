@@ -74,6 +74,4 @@ public class Car {
     public int getPower() {
         return power;
     }
-
-
 }
