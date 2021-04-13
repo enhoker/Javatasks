@@ -1,6 +1,7 @@
+package MyGarage;
+
 import java.util.Collection;
 public interface Garage {
-
     Collection<Owner> allCarsUniqueOwners();
 
     /**
