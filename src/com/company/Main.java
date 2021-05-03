@@ -9,27 +9,10 @@ public class Main {
         int x = 0;          // счётчик слов
         String[] word;      //массив слов файла
         word = new String[100];
-
-        try(java.io.FileReader fin= new java.io.FileReader("C:\\Users\\Алияш\\Desktop\\y\\y.txt")) //открытие файла
+        try(java.io.FileReader fin= new java.io.FileReader("C:\\Users\\Алияш\\Desktop\\y\\y.json")) //открытие файла
         {
-            int i;              //переменная, в которую считываем по одному символы из файла
-            String j = "";      //переменная, в которую считываем по одному слова из файла
-            while((i = fin.read()) != -1){ //считываем в i следующий символ из файла
-
-                if( (i == 10) || (i == 13) || ((char)i == ' ') ) { //разделяем слова по пробелу или символу конца строки
-                    if (!(j.equals(""))) {
-                        word[x] = j;
-                        x = x+1;
-                    }
-                    j = "";
-                } else {
-                    j = j + (char)i;
-                    //  System.out.printf("j = %s i = %d \n", j, i);
-                }
-
-            }
-            x = x+1;
-            word[x] = j; //скидываем в word последнее слово
+            Object obj = parser.parse(new FileReader("C:\\Users\\Алияш\\Desktop\\y\\y.json"));
+            word = obj.toString();
         }
         catch(java.io.IOException ex){ //обработка исключений
             System.out.println(ex.getMessage());
