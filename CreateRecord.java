@@ -6,8 +6,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
-public class CreateRecord {
+public class CreateRecord implements ReportGenerator{
 
     private static void createExcelFile(XSSFWorkbook book, String name, String address) {
         try (FileOutputStream record = new FileOutputStream(new File(address + "//" + name + ".xls"))) {
@@ -92,5 +93,14 @@ public class CreateRecord {
         return book;
     }
 
-
+    @Override
+    public Report generate(List entities) {
+        Record record = new Record();
+        try {
+            record.workbook = about(entities, "C:\\temp");
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return record;
+    }
 }
